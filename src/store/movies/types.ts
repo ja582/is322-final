@@ -1,6 +1,5 @@
 export const ADD_FAVORITE_MOVIE = 'ADD_FAVORITE_MOVIE';
 
-
 export interface Movie {
   year: Number,
   title: String,
