@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+
 import { Route, Switch }   from 'react-router-dom';
 import { connect }         from 'react-redux';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -22,13 +26,16 @@ function App() {
         console.log(err);
       });
 
-  return (
-    <div className="App">
-      <header className="App-header">
-      <p>test</p>
-      </header>
-    </div>
-  );
+    return (
+        <Container className="p-3">
+            <Jumbotron>
+                <h1 className="header">
+                    bbbbbbb
+                </h1>
+            </Jumbotron>
+            <h2>Buttons</h2>
+        </Container>
+    );
 }
 
 export default App;
