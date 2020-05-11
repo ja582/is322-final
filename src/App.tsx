@@ -1,23 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
+import { Route, Switch }   from 'react-router-dom';
+import { connect }         from 'react-redux';
 import './App.css';
 
+
 function App() {
+
+  document.title = 'Movies';
+
+  fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/inception", {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com",
+      "x-rapidapi-key": "5f2818331bmshceba3faa9bcb533p18e145jsned421065d22a"
+    }
+  })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <p>test</p>
       </header>
     </div>
   );
