@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import MenuBar from "../components/MenuBar";
 
 function Home() {
   return (
-    <div>Home Page</div>
+
+    <div>Hi Hello Welcome</div>
   );
 }
 
