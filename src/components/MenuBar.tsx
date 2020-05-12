@@ -8,15 +8,9 @@ function MenuBar() {
       <Navbar.Brand>
         Movie Man
       </Navbar.Brand>
-      <Nav.Link>
-        <Link to="/">Home</Link>
-      </Nav.Link>
-      <Nav.Link>
-        <Link to="/search">Search</Link>
-      </Nav.Link>
-      <Nav.Link>
-        <Link to="/movies">Movies</Link>
-      </Nav.Link>
+      <Link to="/">Home</Link>
+      <Link to="/search">Search</Link>
+      <Link to="/movies">Movies</Link>
     </Navbar>
   );
 }

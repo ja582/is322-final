@@ -1,9 +1,14 @@
 import React from 'react';
+import { Movie } from '../store/movies/types';
 
-function MovieItem() {
+interface Properties {
+  value: Movie
+}
+
+function MovieItem({ value }: Properties) {
   return (
     <div>
-      Movie Item for the Movie List
+      {value.title}
     </div>
   );
 }

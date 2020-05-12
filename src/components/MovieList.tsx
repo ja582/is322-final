@@ -1,7 +1,13 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import { Movie } from '../store/movies/types';
+import MovieItem from './MovieItem';
 
-function MovieList() {
+interface Properties {
+  data: Movie[]
+}
+
+function MovieList({ data }: Properties) {
   return (
     <Table striped bordered hover>
       <thead>
@@ -13,37 +19,9 @@ function MovieList() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td></td>
-          <td>Lost In Translation</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td></td>
-          <td>Fargo</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td></td>
-          <td>Casino</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td></td>
-          <td>Falling Down</td>
-          <td>9</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td></td>
-          <td>The Thing</td>
-          <td>10</td>
-        </tr>
-
+        {data.map((movie) => (
+          <MovieItem value={movie} />
+        ))}
       </tbody>
     </Table>
   );
