@@ -1,18 +1,39 @@
-export const ADD_FAVORITE_MOVIE = 'ADD_FAVORITE_MOVIE';
+export const ADD_MOVIE       = 'ADD_MOVIE';
+export const ADD_FAVORITE    = 'ADD_FAVORITE';
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
 
 export interface Movie {
-  year: Number,
-  title: String,
-  director?: String
+  id:                 Number,
+  title:              String,
+  release_date?:      String,
+  vote_average?:      Number,
+  overview?:          String,
+  poster_path?:       String,
+  backdrop_path?:     String,
+  original_language?: String,
+  popularity?:        Number,
+  vote_count?:        Number,
 }
 
 export interface MoviesState {
-  favoriteMovies: Movie[];
+  movies:    Movie[];
+  favorites: Number[];
 }
 
-interface AddFavoriteMovieAction {
-  type: typeof ADD_FAVORITE_MOVIE,
+interface AddMovieAction {
+  type:    typeof ADD_MOVIE,
   payload: Movie
 }
 
-export type MoviesActionTypes = AddFavoriteMovieAction;
+interface AddFavoriteAction {
+  type:    typeof ADD_FAVORITE,
+  payload: Movie
+}
+
+interface RemoveFavoriteAction {
+  type:    typeof REMOVE_FAVORITE,
+  payload: Movie
+}
+
+export type MoviesActionTypes =
+  AddMovieAction | AddFavoriteAction | RemoveFavoriteAction;

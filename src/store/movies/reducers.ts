@@ -1,21 +1,44 @@
-import { MoviesState, MoviesActionTypes, ADD_FAVORITE_MOVIE } from './types'
+import { HasMovieId } from './helpers';
+import { MoviesState, MoviesActionTypes,
+  ADD_MOVIE, ADD_FAVORITE, REMOVE_FAVORITE } from './types'
+
 
 const initialState: MoviesState = {
-  favoriteMovies: []
+  movies:    [],
+  favorites: [],
 };
+
 
 export function MoviesReducer(state = initialState, action: MoviesActionTypes):
   MoviesState
 {
   switch (action.type) {
-    case ADD_FAVORITE_MOVIE:
-      return {
-        ...state,
-        favoriteMovies: [ action.payload, ...state.favoriteMovies ]
-      }
+    /**
+     * Add movie to movies store.
+     */
+    case ADD_MOVIE:
+      if (!HasMovieId(state.movies, action.payload.id))
+        return {
+          ...state, movies: [ ...state.movies, action.payload ]
+        };
 
-    default:
-      return state;
+    /**
+     * Add movie to favorites.
+     */
+    case ADD_FAVORITE:
+      if (HasMovieId(state.movies, action.payload.id))
+        return {
+          ...state, favorites: [ action.payload.id, ...state.favorites ]
+        };
+
+    /**
+     * Remove movie from favorites.
+     */
+    case REMOVE_FAVORITE:
+      return {
+        ...state, favorites: state.favorites.filter((id) => id != action.payload.id)
+      };
   }
 
+  return state;
 }
