@@ -2,12 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from 'react-bootstrap';
 
-function Movie() {
+import MovieList from "../components/MovieList";
+
+function Movies() {
   return (
     <Container>
-      Individual Movie
+      <MovieList />
     </Container>
   );
 }
 
-export default connect()(Movie);
+export default connect()(Movies);
