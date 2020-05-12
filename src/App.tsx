@@ -5,20 +5,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import MenuBar from './components/MenuBar';
 import Home from './pages/Home';
-import Container from "react-bootstrap/Container";
-import Movie from "./pages/Movie";
+import Movies from './pages/Movies';
+import Search from './pages/Search';
 
 
 function App() {
   return (
     <Fragment>
-        <Container>
-            <MenuBar />
+      <MenuBar />
       <Switch>
         <Route path='/' component={Home} exact />
-        <Route path='/Movie' component={Movie} exact />
+        <Route path='/search' component={Search} exact />
+        <Route path='/movies' component={Movies} exact />
       </Switch>
-        </Container>
     </Fragment>
   );
 }

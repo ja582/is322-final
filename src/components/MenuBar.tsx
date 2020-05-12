@@ -1,16 +1,23 @@
 import React from 'react';
-import Button from "react-bootstrap/Button";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Nav from "react-bootstrap/Nav";
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 
 function MenuBar() {
   return (
-      <Navbar bg="light" expand="lg">
-          <Navbar.Brand><Link to="/">Home</Link></Navbar.Brand>
-          <Navbar.Brand><Link to="/Movie">Movie</Link></Navbar.Brand>
-      </Navbar>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand>
+        Movie Man
+      </Navbar.Brand>
+      <Nav.Link>
+        <Link to="/">Home</Link>
+      </Nav.Link>
+      <Nav.Link>
+        <Link to="/search">Search</Link>
+      </Nav.Link>
+      <Nav.Link>
+        <Link to="/movies">Movies</Link>
+      </Nav.Link>
+    </Navbar>
   );
 }
 
