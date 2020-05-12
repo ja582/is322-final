@@ -1,14 +1,19 @@
 import React from 'react';
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Form } from 'react-bootstrap';
 
-function SearchBar() {
+interface Properties {
+  value: string,
+  setValue: Function
+}
+
+function SearchBar({ value, setValue }: Properties) {
   return (
-    <div>
-        <Form>
-            <Form.Control type="text" placeholder="Input Movie" />   <Button variant="primary" type="submit"> Submit</Button>
-        </Form>
-    </div>
+    <Form.Control
+      value={value}
+      type="text"
+      placeholder="Input Movie"
+      onChange={(e) => setValue(e.target.value)}
+    />
   );
 }
 
