@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MenuBar from "../components/MenuBar";
+import { Container } from 'react-bootstrap';
 
 function Home() {
   return (
-
-    <div>Hi Hello Welcome</div>
+    <Container>
+      <div>Hi Hello Welcome</div>
+    </Container>
   );
 }
 
