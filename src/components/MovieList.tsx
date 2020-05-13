@@ -12,7 +12,6 @@ function MovieList({ data }: Properties) {
     <Table striped bordered hover>
       <thead>
       <tr>
-        <th>id</th>
         <th>Title</th>
         <th>Overview</th>
         <th>Original Language</th>
