@@ -13,6 +13,7 @@ export interface Movie {
   original_language?: String,
   popularity?:        Number,
   vote_count?:        Number,
+  adult:              String,
 }
 
 export interface MoviesState {

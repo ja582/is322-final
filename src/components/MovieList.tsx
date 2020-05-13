@@ -11,17 +11,20 @@ function MovieList({ data }: Properties) {
   return (
     <Table striped bordered hover>
       <thead>
-        <tr>
-          <th>#</th>
-          <th>Image</th>
-          <th>Title</th>
-          <th>Score</th>
-        </tr>
+      <tr>
+        <th>id</th>
+        <th>Title</th>
+        <th>Overview</th>
+        <th>Original Language</th>
+        <th>Vote Average</th>
+        <th>Release Date</th>
+        <th>Adult</th>
+      </tr>
       </thead>
       <tbody>
-        {data.map((movie) => (
-          <MovieItem value={movie} />
-        ))}
+      {data.map((movie, i) => (
+        <MovieItem value={movie} key={i} />
+      ))}
       </tbody>
     </Table>
   );
