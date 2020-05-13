@@ -13,10 +13,6 @@ interface Properties {
 }
 
 function Movies({ movies, addMovie }: Properties) {
-  // FOR TESTING PURPOSES ONLY
-  require('../api/ExampleOutput.json').results.forEach((movie: Movie) => addMovie(movie))
-  // FOR TESTING PURPOSES ONLY
-
   return (
     <Container>
       <MovieList data={movies} />
