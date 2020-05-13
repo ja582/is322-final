@@ -9,7 +9,9 @@ function MenuBar() {
         Movie Man
       </Navbar.Brand>
       <Link to="/">Home</Link>
+      <text>&nbsp;</text>
       <Link to="/search">Search</Link>
+      <text>&nbsp;</text>
       <Link to="/movies">Movies</Link>
     </Navbar>
   );
