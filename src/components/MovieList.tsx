@@ -22,9 +22,9 @@ function MovieList({ data }: Properties) {
       </tr>
       </thead>
       <tbody>
-      {data.map((movie, i) => (
-        <MovieItem value={movie} key={i} />
-      ))}
+        {data.map((movie: Movie, i: number) => (
+          <MovieItem value={movie} key={i} />
+        ))}
       </tbody>
     </Table>
   );
