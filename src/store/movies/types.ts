@@ -1,4 +1,5 @@
 export const ADD_MOVIE       = 'ADD_MOVIE';
+export const REMOVE_MOVIE    = 'REMOVE_MOVIE';
 export const ADD_FAVORITE    = 'ADD_FAVORITE';
 export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
 
@@ -26,6 +27,11 @@ interface AddMovieAction {
   payload: Movie
 }
 
+interface RemoveMovieAction {
+  type:    typeof REMOVE_MOVIE,
+  payload: Movie
+}
+
 interface AddFavoriteAction {
   type:    typeof ADD_FAVORITE,
   payload: Movie
@@ -37,4 +43,4 @@ interface RemoveFavoriteAction {
 }
 
 export type MoviesActionTypes =
-  AddMovieAction | AddFavoriteAction | RemoveFavoriteAction;
+  AddMovieAction | RemoveMovieAction | AddFavoriteAction | RemoveFavoriteAction;

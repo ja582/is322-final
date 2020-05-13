@@ -1,9 +1,16 @@
 import { Movie, MoviesActionTypes,
-  ADD_MOVIE, ADD_FAVORITE, REMOVE_FAVORITE } from './types';
+  ADD_MOVIE, REMOVE_MOVIE, ADD_FAVORITE, REMOVE_FAVORITE } from './types';
 
 export function AddMovie(movie: Movie): MoviesActionTypes {
   return {
     type: ADD_MOVIE,
+    payload: movie
+  }
+}
+
+export function RemoveMovie(movie: Movie): MoviesActionTypes {
+  return {
+    type: REMOVE_MOVIE,
     payload: movie
   }
 }

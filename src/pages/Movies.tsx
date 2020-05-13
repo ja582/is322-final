@@ -3,19 +3,20 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Container } from 'react-bootstrap';
 import { Movie } from '../store/movies/types';
-import { AddMovie } from '../store/movies/actions';
+import { RemoveMovie } from '../store/movies/actions';
 
 import MovieList from "../components/MovieList";
 
 interface Properties {
-  movies:   Movie[],
-  addMovie: Function
+  movies:      Movie[],
+  addMovie:    Function,
+  removeMovie: Function
 }
 
-function Movies({ movies, addMovie }: Properties) {
+function Movies({ movies, addMovie, removeMovie }: Properties) {
   return (
     <Container>
-      <MovieList data={movies} />
+      <MovieList data={movies} removeData={removeMovie} />
     </Container>
   );
 }
@@ -25,7 +26,7 @@ const mapStateToProps = ({ MoviesReducer }: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  addMovie: (movie: Movie) => dispatch(AddMovie(movie))
+  removeMovie: (movie: Movie) => dispatch(RemoveMovie(movie)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Movies);

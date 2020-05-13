@@ -1,6 +1,6 @@
 import { HasMovieId } from './helpers';
-import { MoviesState, MoviesActionTypes,
-  ADD_MOVIE, ADD_FAVORITE, REMOVE_FAVORITE } from './types'
+import { Movie, MoviesState, MoviesActionTypes,
+  ADD_MOVIE, REMOVE_MOVIE, ADD_FAVORITE, REMOVE_FAVORITE } from './types'
 
 const initialMovies    = JSON.parse(localStorage.getItem('movies') || '0');
 const initialFavorites = JSON.parse(localStorage.getItem('favorites') || '0');
@@ -26,6 +26,16 @@ export function MoviesReducer(state = initialState, action: MoviesActionTypes):
           ...state, movies: [ ...state.movies, action.payload ]
         };
       break;
+      
+    /**
+     * Remove movie to movies store.
+     */
+    case REMOVE_MOVIE:
+      updatedState = {
+        ...state, movies: state.movies.filter(
+          (movie: Movie) => movie.id !== action.payload.id)
+      };
+      break;
 
     /**
      * Add movie to favorites.
@@ -43,7 +53,7 @@ export function MoviesReducer(state = initialState, action: MoviesActionTypes):
     case REMOVE_FAVORITE:
       updatedState = {
         ...state, favorites: state.favorites.filter(
-          (id) => id !== action.payload.id)
+          (id: Number) => id !== action.payload.id)
       };
       break;
   }
