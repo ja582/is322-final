@@ -12,12 +12,10 @@ interface Properties {
 function SearchBar({ query, setQuery, updateData, apiCallback }: Properties) {
   const [isWorking, setWorking] = useState(false);
   const [fetchData] = useState(() => _.debounce((value: string) => {
-    if (value)
-      apiCallback(value).then((res: any) => updateData(res.data));
-    else
-      updateData(undefined);
+    if (!value)
+      return updateData(undefined), setWorking(false);
 
-    setWorking(false);
+    apiCallback(value).then((res: any) => updateData(res.data), setWorking(false)); 
   }, 1000));
 
   return (
