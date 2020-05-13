@@ -15,6 +15,7 @@ function MovieItem({ value }: Properties) {
       <td>{value.original_language}</td>
       <td>{value.vote_average}</td>
       <td>{value.release_date}</td>
+      <td>{value.adult ? "Yes, 18+" : "No"}</td>
     </tr>
   );
 }
