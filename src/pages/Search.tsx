@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { Container } from 'react-bootstrap';
+import { Container, CardColumns } from 'react-bootstrap';
 
 import { SearchTitle } from '../api/TheMovieDb';
 import { Movie } from '../store/movies/types';
@@ -33,9 +33,11 @@ function Search({ addMovie }: Properties) {
         updateData={updateMovies}
         apiCallback={SearchTitle}
       />
-      {movies.map((movie: Movie, i: number) => (
-        <MovieCard key={i} {...movie} />
-      ))}
+      <CardColumns className="text-center">
+        {movies.map((movie: Movie, i: number) => (
+          <MovieCard key={i} {...movie} />
+        ))}
+      </CardColumns>
     </Container>
   );
 }
