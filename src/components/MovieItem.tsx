@@ -8,9 +8,14 @@ interface Properties {
 
 function MovieItem({ value }: Properties) {
   return (
-    <div>
-      {value.title}
-    </div>
+    <tr>
+      <td>{value.id}</td>
+      <td>{value.title}</td>
+      <td>{value.overview}</td>
+      <td>{value.original_language}</td>
+      <td>{value.vote_average}</td>
+      <td>{value.release_date}</td>
+    </tr>
   );
 }
 
