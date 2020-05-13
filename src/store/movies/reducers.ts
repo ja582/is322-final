@@ -17,26 +17,31 @@ export function MoviesReducer(state = initialState, action: MoviesActionTypes):
      * Add movie to movies store.
      */
     case ADD_MOVIE:
-      if (!HasMovieId(state.movies, action.payload.id))
-        return {
-          ...state, movies: [ ...state.movies, action.payload ]
-        };
+      if (HasMovieId(state.movies, action.payload.id))
+        break;
+
+      return {
+        ...state, movies: [ ...state.movies, action.payload ]
+      };
 
     /**
      * Add movie to favorites.
      */
     case ADD_FAVORITE:
-      if (HasMovieId(state.movies, action.payload.id))
-        return {
-          ...state, favorites: [ action.payload.id, ...state.favorites ]
-        };
+      if (!HasMovieId(state.movies, action.payload.id))
+        break;
+
+      return {
+        ...state, favorites: [ action.payload.id, ...state.favorites ]
+      };
 
     /**
      * Remove movie from favorites.
      */
     case REMOVE_FAVORITE:
       return {
-        ...state, favorites: state.favorites.filter((id) => id != action.payload.id)
+        ...state, favorites: state.favorites.filter(
+          (id) => id !== action.payload.id)
       };
   }
 

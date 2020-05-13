@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import MenuBar from './components/MenuBar';

@@ -2,6 +2,7 @@ import React from 'react';
 import { Movie } from '../store/movies/types';
 
 interface Properties {
+  key:   Number,
   value: Movie
 }
 
