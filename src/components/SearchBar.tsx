@@ -13,9 +13,11 @@ function SearchBar({ query, setQuery, updateData, apiCallback }: Properties) {
   const [isWorking, setWorking] = useState(false);
   const [fetchData] = useState(() => _.debounce((value: string) => {
     if (!value)
-      return updateData(undefined), setWorking(false);
+      return (updateData(undefined), setWorking(false));
 
-    apiCallback(value).then((res: any) => updateData(res.data), setWorking(false)); 
+    apiCallback(value).then((res: any) => (
+      updateData(res.data), setWorking(false)
+    )); 
   }, 1000));
 
   return (

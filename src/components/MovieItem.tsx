@@ -1,21 +1,16 @@
 import React from 'react';
 import { Movie } from '../store/movies/types';
 
-interface Properties {
-  key:   Number,
-  value: Movie
-}
-
-function MovieItem({ value }: Properties) {
+function MovieItem(movie: Movie) {
   return (
     <tr>
-      <td>{value.id}</td>
-      <td>{value.title}</td>
-      <td>{value.overview}</td>
-      <td>{value.original_language}</td>
-      <td>{value.vote_average}</td>
-      <td>{value.release_date}</td>
-      <td>{value.adult ? "Yes, 18+" : "No"}</td>
+      <td>{movie.id}</td>
+      <td>{movie.title}</td>
+      <td>{movie.overview}</td>
+      <td>{movie.original_language}</td>
+      <td>{movie.vote_average}</td>
+      <td>{movie.release_date}</td>
+      <td>{movie.adult ? "Yes, 18+" : "No"}</td>
     </tr>
   );
 }

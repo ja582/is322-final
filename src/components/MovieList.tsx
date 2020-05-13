@@ -23,7 +23,7 @@ function MovieList({ data }: Properties) {
       </thead>
       <tbody>
         {data.map((movie: Movie, i: number) => (
-          <MovieItem value={movie} key={i} />
+          <MovieItem key={i} {...movie} />
         ))}
       </tbody>
     </Table>
