@@ -6,7 +6,7 @@ var TextTruncate = require('react-text-truncate')
 
 function MovieCard(props: Movie) {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card className="text-left" style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title><Link to={`/movies/${props.id}`}>{props.title}</Link></Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{props.release_date}</Card.Subtitle>
