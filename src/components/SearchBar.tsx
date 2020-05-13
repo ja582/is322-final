@@ -21,7 +21,7 @@ function SearchBar({ query, setQuery, updateData, apiCallback }: Properties) {
   }, 1000));
 
   return (
-    <Form.Row style={{ paddingTop: '1.5rem' }}>
+    <Form.Row>
       <Form.Group as={Col}>
         <InputGroup>
           <InputGroup.Prepend>

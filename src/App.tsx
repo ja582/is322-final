@@ -13,6 +13,7 @@ function App() {
   return (
     <Fragment>
       <MenuBar />
+      <div style={{ padding: '0.5rem' }}></div>
       <Switch>
         <Route path='/' component={Home} exact />
         <Route path='/search' component={Search} exact />
