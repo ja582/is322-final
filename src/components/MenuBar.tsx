@@ -1,18 +1,26 @@
 import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function MenuBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand>
-        Movie Man
+        <Link to="/">Movie Man</Link>
       </Navbar.Brand>
-      <Link to="/">Home</Link>
-      <text>&nbsp;</text>
-      <Link to="/search">Search</Link>
-      <text>&nbsp;</text>
-      <Link to="/movies">Movies</Link>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav defaultActiveKey="/">
+          <LinkContainer to="/search">
+            <Nav.Link>Search</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/movies">
+            <Nav.Link>Movies</Nav.Link>
+          </LinkContainer>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
