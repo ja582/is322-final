@@ -34,7 +34,7 @@ function Search({ addMovie }: Properties) {
         apiCallback={SearchTitle}
       />
       {movies.map((movie: Movie, i: number) => (
-        <MovieCard {...movie} key={i} />
+        <MovieCard key={i} {...movie} />
       ))}
     </Container>
   );
