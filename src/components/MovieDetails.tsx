@@ -18,7 +18,7 @@ function MovieDetails({ item, favorites, addFavorite, removeFavorite }: Properti
     <div>
       <Image src={`https://image.tmdb.org/t/p/w220_and_h330_face${item.poster_path}`} thumbnail/>
       <h1>{item.title}</h1>
-      <h5>Released: {item.release_date} ★ {item.vote_average}/10</h5>
+      <h5>Released: {item.release_date} ⭐ {item.vote_average}/10</h5>
       <p>{item.overview}</p>
       <p>Original Language: {item.original_language}</p>
       <p>{item.adult ? "Adults can only watch this." : "This Movie is for all ages."}</p>
