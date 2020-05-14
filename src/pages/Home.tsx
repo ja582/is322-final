@@ -1,13 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Container } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 
 function Home() {
-  return (
-    <Container>
-      <div>Hi Hello Welcome</div>
-    </Container>
-  );
+  return <Redirect to='/search' />;
 }
 
-export default connect()(Home);
+export default Home;
