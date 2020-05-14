@@ -10,6 +10,7 @@ import './index.css';
 import Reducers from './store/index'
 const store = createStore(Reducers);
 
+document.title = 'IS322 Final Project - Movies';
 render(
   <React.StrictMode>
     <Provider store={store}>
