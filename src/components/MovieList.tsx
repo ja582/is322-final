@@ -13,6 +13,7 @@ function MovieList({ data, removeData }: Properties) {
     <Table striped bordered hover>
       <thead>
       <tr>
+        <th>Favorite</th>
         <th>Title</th>
         <th>Overview</th>
         <th>Language</th>
