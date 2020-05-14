@@ -10,13 +10,13 @@ import MovieDetails from "../components/MovieDetails";
 
 
 interface Properties {
-  movies:    Movie[],
-  favorites: Movie[],
-  addFav:    Function,
-  removeFav: Function,
+  movies:         Movie[],
+  favorites:      Number[],
+  addFavorite:    Function,
+  removeFavorite: Function,
 }
 
-function MoviePage({ movies, favorites, addFav, removeFav }: Properties) {
+function MoviePage({ movies, favorites, addFavorite, removeFavorite }: Properties) {
   let { id } = useParams();
   id = parseInt(id);
   const movie = id === 'NaN' ? undefined : movies.find((movie) => movie.id === id);
@@ -27,7 +27,12 @@ function MoviePage({ movies, favorites, addFav, removeFav }: Properties) {
 
   return (
     <Container>
-      <MovieDetails {...movie} />
+      <MovieDetails
+        item={movie}
+        favorites={favorites}
+        addFavorite={addFavorite}
+        removeFavorite={removeFavorite}
+      />
     </Container>
   );
 }
@@ -38,8 +43,8 @@ const mapStateToProps = ({ MoviesReducer }: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  addFav:    (movie: Movie) => dispatch(AddFavorite(movie)),
-  removeFav: (movie: Movie) => dispatch(RemoveFavorite(movie)),
+  addFavorite:    (movie: Movie) => dispatch(AddFavorite(movie)),
+  removeFavorite: (movie: Movie) => dispatch(RemoveFavorite(movie)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
