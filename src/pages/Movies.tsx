@@ -17,9 +17,7 @@ interface Properties {
 function Movies({ movies, favorites, addMovie, removeMovie }: Properties) {
   const sortedMovies = movies.map(
     (movie) => ({favorite: favorites.includes(movie.id), ...movie})
-  ).sort(
-  (a: any, b: any) => b.favorite - a.favorite
-  );
+  ).sort((a: any, b: any) => b.favorite - a.favorite);
 
   return (
     <Container>
