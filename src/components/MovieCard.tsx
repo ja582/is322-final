@@ -19,7 +19,7 @@ function MovieCard(props: Movie) {
           {`${props.overview?.slice(0, 100)}...`}
         </Card.Text>
         <Card.Text>
-          ★ {props.vote_average}/10
+          ⭐ {props.vote_average}/10
         </Card.Text>
       </Card.Body>
     </Card>
