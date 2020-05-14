@@ -9,20 +9,28 @@ import MovieList from "../components/MovieList";
 
 interface Properties {
   movies:      Movie[],
+  favorites:   Number[],
   addMovie:    Function,
   removeMovie: Function
 }
 
-function Movies({ movies, addMovie, removeMovie }: Properties) {
+function Movies({ movies, favorites, addMovie, removeMovie }: Properties) {
+  const sortedMovies = movies.map(
+    (movie) => ({favorite: favorites.includes(movie.id), ...movie})
+  ).sort(
+  (a: any, b: any) => b.favorite - a.favorite
+  );
+
   return (
     <Container>
-      <MovieList data={movies} removeData={removeMovie} />
+      <MovieList data={sortedMovies} removeData={removeMovie} />
     </Container>
   );
 }
 
 const mapStateToProps = ({ MoviesReducer }: any) => ({
-  movies: MoviesReducer.movies
+  movies:    MoviesReducer.movies,
+  favorites: MoviesReducer.favorites,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
